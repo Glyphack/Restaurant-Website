@@ -1,0 +1,48 @@
+{% extends 'foodsapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="row" style="margin-top: 6%">
+            <div class="col-md-7 order-create">
+                <h4 class="page-header">Checkout</h4>
+                <form action="." method="post">
+                    {% csrf_token %}
+                    {% for error in form.non_field_errors %}
+                    <div class="form-group has-errors text-danger small">
+                        {{error}}
+                    </div>
+                    {% endfor %}
+                    {% for field in form %}
+                    <div class="form-group has-errors text-danger small">
+                        {{field.errors}}
+                    </div>
+                    <div class="form-group has-errors text-danger small">
+                    </div>
+                    <div class="form-group">
+                        {{field}}
+                    </div>
+                    {% endfor %}<br>
+                    <input type="submit" class="btn btn-primary" value="Submit order">
+                </form>
+            </div>
+            <div class="col-md-1"></div>  
+            <div class="col-md-4 create-sidebar">
+                <div class="page-header">
+                    Your Order
+                </div>
+                <ul class="list-group">
+                    {% for item in cart %}
+                        <li class="list-group-item">
+                        {{ item.quantity }}x {{ item.product.name }}
+                        <span>{{ item.total_price }}$</span>
+                        </li>
+                    {% endfor %}
+
+                <li class="list-group-item active">Total Cost:{{ cart.get_total_price }}$</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

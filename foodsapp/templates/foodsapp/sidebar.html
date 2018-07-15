@@ -1,0 +1,42 @@
+<div class="row" style="margin-top: 6%"></div>
+        <table class="table table-striped table-hover">
+            <thead style="background-color: #5AC8FA">
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Remove</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in cart %}
+                {% with product=item.product  %}
+                    <tr>
+                        <td>{{ product.name }}</td>
+                        <td>
+                            
+                            <form action="{% url "cart:cart_add" product.id %}" method="post">
+                                {{ item.quantity }}    
+                                {% csrf_token %}
+                                {{ cart_product_form2 }}
+                                <input type="submit" value="+" class="btn btn-info">
+                            </form>
+                        </td>
+                        <td>
+                            <a href="{% url "cart:cart_remove" product.id %}">Remove</a>
+                        </td>
+                        <td>{{ item.total_price }}$</td>
+                    </tr>
+                {% endwith %}
+            {% endfor %}
+            <tr style="background-color: #5AC8FA">
+                <td><b>Total</b></td>
+                <td colspan="2"></td>
+                <td colspan="num"><b>{{ cart.get_total_price }}$</b></td>
+            </tr>
+            </tbody>
+        </table>
+    <p class="text-center">
+        <a href="{% url "orders:order_create" %}" class="btn btn-primary">Checkout</a>
+    </p>
+    </div>
