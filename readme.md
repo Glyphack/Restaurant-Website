@@ -8,7 +8,7 @@ Follow these steps to clone the repository and getting started with running webs
 
 ### Prerequisites
 
-this website is made with django and python3 so you need to install them.It's a beeter approach if you use these with vitual enviroment.
+this website is made with django and python3 so you need to install them.It's a beter approach if you use these with vitual enviroment.
 
 ```
 virtualenv venv
@@ -39,7 +39,7 @@ It's the first commit I'm going to implement unit tests for next commit :(.
 
 ## Built With
 
-* [Dropwizard](https://www.djangoproject.com/) - The web framework used
+* [Django](https://www.djangoproject.com/) - The web framework used
 
 ## Contributing
 will be added soon.
@@ -47,7 +47,7 @@ will be added soon.
 
 ## Authors
 
-* **Shaygan** - *Initial work* - [PurpleBooth](https://github.com/Glyphack)
+* **Shaygan** - *Initial work* - [Glyphack](https://github.com/Glyphack)
 
 list of contributers will be added too.
 
