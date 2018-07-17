@@ -35,7 +35,14 @@ enter your localhost you can browse website see menu and index and order the foo
 p.s: because of some prohibition issue I couldn't implement a foreign payment method (eg.PayPal).I can only use payment methods of my own country, I'll be looking to find a way to implement a good payment method.
 ## Running the tests
 
-It's the first commit I'm going to implement unit tests for next commit :(.
+each test is under the app directory eg.foodsapp/test.py you can run tests using command
+```
+./manage.py test
+```
+or
+```
+python manage.py test appname
+```
 
 ## Built With
 
