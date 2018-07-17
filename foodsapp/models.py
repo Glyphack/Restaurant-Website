@@ -10,6 +10,9 @@ class Food(models.Model):
     likes = models.IntegerField()
     ordered_times = models.IntegerField()
 
+    def __str__(self):
+        return self.name
+
 # class Comment(models.Model):
 #     food = models.ForeignKey(Food,on_delete=models.CASCADE)
 #     comment_text = models.CharField(max_length=1000)   
