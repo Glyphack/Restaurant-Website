@@ -1,4 +1,4 @@
-# Restauran Website
+# Restaurant Website
 
 A website for restaurants which can handle menu and customer orders(more features will be added soon)
 
@@ -26,13 +26,13 @@ like this
 ```
 SECRET_KEY = 'blah#blah#blah'
 ```
-in the root folder of application you can run django commands with manage.py(I've done the migration but feel free to do it on your own website:https://docs.djangoproject.com/en/2.0/topics/migrations).
+in the root folder of application you can run django commands with manage.py(I've done the migration but feel free to do it on your own, https://docs.djangoproject.com/en/2.0/topics/migrations).
 ```
 python manage.py runserver
 ```
 enter your localhost you can browse website see menu and index and order the food(for now).
 
-p.s: because of some prohibition issue I could'nt implent a foreign payment method (eg.PayPal).I can only use payment methods of my own country, I'll be looking to find a way to implement a good payment method.
+p.s: because of some prohibition issue I couldn't implement a foreign payment method (eg.PayPal).I can only use payment methods of my own country, I'll be looking to find a way to implement a good payment method.
 ## Running the tests
 
 It's the first commit I'm going to implement unit tests for next commit :(.
