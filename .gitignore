@@ -1,1 +1,2 @@
 RestaurantApp/settings_secret.py
+db.sqlite3
