@@ -9,21 +9,7 @@ from django.template import loader
 
 def index_view(request):
     return render(request, 'foodsapp/index.html')
-
-def login():
-    pass
-def newOrder(user_id):
-    pass
-
-def userProfile(user_id):
-    pass
-
-def userProfileEdit(user_id):
-    pass
-
-def userOrders(user_id):
-    pass
-
+    
 def foods(request):
     foods = Food.objects.order_by('-likes')
     cart_product_form = CartAddProductForm()

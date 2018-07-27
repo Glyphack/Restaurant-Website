@@ -23,6 +23,17 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              {% if user.is_authenticated %}
+              <a href="{% url "users:logout" %}" style="color: #ffffff">
+                  Logout
+                </a>
+                  {% else %}
+                  <a href="{% url "users:login" %}" style="color: #ffffff">
+                    Login
+                  </a>  
+              {% endif %}
+              </button>        
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
           {% with totail_items=cart|length %}
           {% if cart|length > 0 %}
