@@ -16,6 +16,6 @@ class CustomerSignUpForm(UserCreationForm):
         user.is_customer = True
         user.save()
         customer = Customer.objects.create(user=user)
-        customer.address = self.cleaned_data.get('interests')
+        customer.address = self.cleaned_data.get('address')
         
         return user

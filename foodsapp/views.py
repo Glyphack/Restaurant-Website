@@ -14,7 +14,9 @@ def foods(request):
     foods = Food.objects.order_by('-likes')
     cart_product_form = CartAddProductForm()
     cart_product_form2 = CartAddProductFormSideBar()
+    user = request.user
     context = {
+        'user' : user,
         'foods': foods,
         'cart_product_form': cart_product_form,
         'cart_product_form2': cart_product_form2

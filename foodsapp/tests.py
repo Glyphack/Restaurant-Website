@@ -7,7 +7,7 @@ def create_food(name, details, likes, price, ordered_times):
     """
     Create a food with name and details given
     """
-    return Food.objects.create(name=name, details=details, likes=likes, price=price, ordered_times=ordered_times, picture='test.pngغ')
+    return Food.objects.create(name=name, details=details, likes=likes, price=price, ordered_times=ordered_times, picture='test.png')
 
 class FoodsAppIndexViewTests(TestCase):
     def test_if_page_loads_currectly(self):
