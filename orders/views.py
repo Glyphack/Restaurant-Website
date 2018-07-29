@@ -11,6 +11,7 @@ def order_create(request):
     cart = Cart(request)
     if request.method == 'POST':
         form = OrderCreateForm(request.POST)
+        # form.fields['address'] = request.user.customer.address
         if form.is_valid():
             order = form.save()
             for item in cart:
@@ -23,5 +24,5 @@ def order_create(request):
             cart.clear()
         return render(request, 'order/created.html', {'order': order})
     else:
-        form = OrderCreateForm()
+        form = OrderCreateForm(request = request)
     return render(request, 'order/create.html', {'form': form})
