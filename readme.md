@@ -8,7 +8,7 @@ Follow these steps to clone the repository and getting started with running webs
 
 ### Prerequisites
 
-this website is made with django and python3 so you need to install them.It's a beter approach if you use these with vitual enviroment.
+this website is made with django and python3 so you need to install them.It's a better approach if you use these with vitual enviroment.
 
 ```
 virtualenv venv
@@ -26,7 +26,7 @@ like this
 ```
 SECRET_KEY = 'blah#blah#blah'
 ```
-in the root folder of application you can run django commands with manage.py(I've done the migration but feel free to do it on your own, https://docs.djangoproject.com/en/2.0/topics/migrations).
+in the root folder of application you can run django commands with manage.py(https://docs.djangoproject.com/en/2.0/topics/migrations).
 ```
 python manage.py runserver
 ```
