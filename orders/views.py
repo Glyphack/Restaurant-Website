@@ -30,13 +30,12 @@ def order_create(request):
                     quantity=item['quantity']
                 )
             global amount
-            print(type(int(cart.get_total_price())))
-            print(type(amount))
-            print(int(cart.get_total_price()))
+            # amount = cart.get_total_price unknown issue with zarrinpal api will be fixed
             amount = 100
-            description = u'test'  # Required
-            email = 'user@userurl.ir'  # Optional
-            mobile = '09123456789'  # Optional
+            print (request.user.email)
+            email = request.user.email
+            mobile = '09123456789' #didn't used this field in database it's here just because of the zarrinpal api 
+            description = u'food'
             CallbackURL = 'http://127.0.0.1:8000/orders/verify/'
             client = Client(ZARINPAL_WEBSERVICE)
             result = client.service.PaymentRequest(
@@ -63,13 +62,29 @@ def verify(request):
                                                     request.GET['Authority'],
                                                     amount)
         if result.Status == 100:
-            return HttpResponse('Transaction success. RefID: ' + str(result.RefID))
+            context = {
+                'status': result.RefID,
+                'message': 'با موفقیت انجام شد'
+            }
+            return render(request, 'order/verify.html', context)
         elif result.Status == 101:
-            return HttpResponse('Transaction submitted : ' + str(result.Status))
+            context = {
+                'status': result.Status,
+                'message': 'ثبت شد'
+            }
+            return render(request, 'order/verify.html', context)
+            
         else:
-            return HttpResponse('Transaction failed. Status: ' + str(result.Status))
+            context = {
+                'status': result.Status,
+                'message': 'با شکست مواجه شد دوباره امتحان کنید'
+            }
+            return render(request, 'order/verify.html', context)
     else:
-        return HttpResponse('Transaction failed or canceled by user')
+            context = {
+                'message': 'توسط کاربر کنسل شد'
+            }
+            return render(request, 'order/verify.html', context)
 
 class OrderListView(ListView):
     template_name = 'order/all_orders.html'
