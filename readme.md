@@ -32,7 +32,7 @@ python manage.py runserver
 ```
 enter your localhost you can browse website see menu and index and order the food(for now).
 
-p.s: because of some prohibition issue I couldn't implement a foreign payment method (eg.PayPal).I can only use payment methods of my own country, I'll be looking to find a way to implement a good payment method.
+p.s: because of some prohibition issue I couldn't implement a foreign payment method (eg.PayPal).I can only use payment methods of my own country, the only method available now is Zarrinpal gate.
 ## Running the tests
 
 each test is under the app directory eg.foodsapp/test.py you can run tests using command
