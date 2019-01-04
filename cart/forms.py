@@ -8,6 +8,7 @@ class CartAddProductForm(forms.Form):
     quantity = forms.TypedChoiceField(choices=PRODUCT_QUANTITY_CHOICES, coerce=int , initial=1)
     update = forms.BooleanField(required=False, initial=False, widget=forms.HiddenInput)
 
+
 class CartAddProductFormSideBar(forms.Form):
     quantity = forms.TypedChoiceField(choices=PRODUCT_QUANTITY_CHOICES, coerce=int , initial=1, widget=forms.HiddenInput)
     update = forms.BooleanField(required=False, initial=False, widget=forms.HiddenInput)
