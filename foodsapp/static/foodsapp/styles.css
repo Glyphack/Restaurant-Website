@@ -1,0 +1,11 @@
+.sidebar{
+    background-color: gray;
+}
+.menu{
+    background-color: greenyellow;
+    color: green;
+}
+
+.food-container{
+    margin-top : 10px;
+}

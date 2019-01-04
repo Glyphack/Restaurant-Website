@@ -1,0 +1,39 @@
+{% extends "foodsapp/base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row margin">
+        <div class="menu col-md-7 ml-auto">
+            {% if foods %}
+                {% for food in foods %}
+                    <div class="food-container border-bottom">
+                        <div class="row">    
+                            <div class="col-md-4 image-container">
+                                <a href="{% url 'foodsapp:detail' food.id %}">
+                                    <img src="{{ food.picture.url }}" width="200px" height="200px" class="img-circle">
+                                </a>
+                            </div>
+                            <div class="col-md-8">
+                                <a href="{% url 'foodsapp:detail' food.id %}">{{ food.name }}</a>
+                                <p>gradiants:</p>
+                                <span class="likes"><p>Likes: {{ food.likes }}</p></span>
+                                <span class="price"><p>Price: {{food.price}}$</p></span>
+                                <form action="{% url "cart:cart_add" food.id %}" method="post">
+                                    {% csrf_token %}
+                                    {{ cart_product_form }}
+                                    <input type="submit" value="Order" class="btn btn-success">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No foods are available.</p>
+            {% endif %}
+        </div>
+        <div class="col-md-1"></div>        
+        <div class="order-sidebar col-md-4">
+            {% include "foodsapp/sidebar.html" %}
+        </div>
+    </div>
+</div>            
+{% endblock %}
