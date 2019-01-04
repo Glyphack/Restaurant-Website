@@ -4,6 +4,7 @@ from django.db import transaction
 
 from .models import User, Customer
 
+
 class CustomerSignUpForm(UserCreationForm):
     address = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'address'}))
 
