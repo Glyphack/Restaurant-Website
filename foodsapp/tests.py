@@ -1,13 +1,15 @@
 from django.test import TestCase
 from django.urls import reverse
+
 from foodsapp.models import Food
-# Create your tests here.
+
 
 def create_food(name, details, likes, price, ordered_times):
     """
     Create a food with name and details given
     """
     return Food.objects.create(name=name, details=details, likes=likes, price=price, ordered_times=ordered_times, picture='test.png')
+
 
 class FoodsAppIndexViewTests(TestCase):
     def test_if_page_loads_currectly(self):
@@ -16,6 +18,7 @@ class FoodsAppIndexViewTests(TestCase):
         """
         response = self.client.get(reverse('foodsapp:index'))
         self.assertEqual(response.status_code, 200)
+
 
 class FoodsAppMenuViewTests(TestCase):
     def test_if_page_loads_currectly(self):
